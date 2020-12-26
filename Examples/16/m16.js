@@ -15,6 +15,7 @@ function Stat(sfn = './static') {
     };
 
     this.isStatic = (ext, fn) => {
+        //Метод regexp.test(str) ищет совпадение и возвращает true/false, в зависимости от того, находит ли он его.
         let reg = new RegExp(`^\/.+\.${ext}$`);
 
         return reg.test(fn);
