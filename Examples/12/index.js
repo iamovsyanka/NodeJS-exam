@@ -1,7 +1,7 @@
 const http = require('http');
 
 http.createServer(function (request, response) {
-    response.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+    response.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
     if (request.method === 'POST') {
         let body = '';
         request.on('data', (chunk) => { body += chunk; });
