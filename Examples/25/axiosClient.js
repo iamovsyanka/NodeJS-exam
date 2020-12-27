@@ -11,4 +11,5 @@ axios({
     method: 'post',
     url: url,
     data: parms
-}).then((response) => { console.log(response.data)} );
+}).then((response) => { console.log(response.data)} )
+    .catch(error => { console.error(error) });
