@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fetch</title>
+	<style type="text/css">
+		.text {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="name"></div>
+	<form>
+		<label>
+			Login
+			<input name="login" type="text" id="login"/>
+		</label>
+		<button onclick="Send()">Send</button>
+	</form>
+	<script>
+		function Send() {
+			fetch('http://localhost:5000/', {
+				method: 'POST', mode: 'no-cors',
+				headers: {'Content-Type':'application/json', 'Accept':'text/html'},
+				body: login.value
+			}) .then(async response => { return response.text(); })
+				.then(data => {
+					console.log('data', data);
+					document.getElementById('name').innerHTML += data;
+				});
+		}
+	</script>
+</body>
+</html>
