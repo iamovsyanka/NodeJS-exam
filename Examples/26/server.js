@@ -2,16 +2,16 @@ const http = require('http');
 
 http.createServer(function (request, response) {
     response.writeHead(200, {'Content-type': 'application/json; charset=utf-8'});
-    if (request.method === 'POST') {
+    if (request.method === 'POST' ) {
         let body = '';
-        request.on('body', (chunk) => { body += chunk; });
+        request.on('data', (chunk) => { body += chunk; });
         request.on('end', () => {
             try {
                 body = JSON.parse(body);
                 let jsonResponse = {};
-                jsonResponse.__comment = 'Response: ' + body.comment;
+                jsonResponse.comment = 'Response: ' + body.comment;
                 jsonResponse.x_plus_y = body.x + body.y;
-                jsonResponse.str = body.str + '!'   ;
+                jsonResponse.str = body.str + '!';
 
                 response.end(JSON.stringify(jsonResponse));
             }
@@ -21,6 +21,6 @@ http.createServer(function (request, response) {
             }
         });
     }
-}).listen(5002);
+}).listen(5000);
 
-console.log('Server running at http://localhost:5002/');
+console.log('Server running at http://localhost:5000/');

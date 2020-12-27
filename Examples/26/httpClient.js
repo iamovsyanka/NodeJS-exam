@@ -6,11 +6,11 @@ let jsonMessage = JSON.stringify({
     y: 2,
     str: "Hello, i am JSON"
 });
-let path = `/parameter`;
+let path = `/`;
 let options = {
     host: 'localhost',
     path: path,
-    port: 5002,
+    port: 5000,
     method: 'POST',
     headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const request = http.request(options, (response) => {
         response.on('data', (chunk) => {
             data += chunk;
         });
-        response.on('end', () => { console.log(data) } );
+        response.on('end', () => { console.log(data) });
     }
 );
 
