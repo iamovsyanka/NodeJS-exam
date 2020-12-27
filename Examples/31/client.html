@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+</head>
+<body>
+    <h1>Client</h1>
+    <button onclick="startWS()">Say Hello</button>
+    <script>
+        function startWS() {
+            let socket = new WebSocket('ws:/localhost:4000/wsserver');
+            socket.onopen = () => { console.log('socket.onopen');
+                setInterval(() => { socket.send('Hello'); }, 1000);
+            };
+
+            socket.onclose = (e) => { console.log('socket.onclose', e); };
+            socket.onmessage = (e) => { console.log('server: ', e.data); };
+            socket.onerror = function(error) { alert('Error: ' + error.message); };
+        }
+    </script>
+</body>
+</html>
