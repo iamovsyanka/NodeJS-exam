@@ -18,7 +18,7 @@ http.createServer(function (request, response) {
             }
             catch (e) {
                 console.error(e);
-                response.end('I can see that it\'s not JSON')
+                response.end('I can see that it\'s not JSON');
             }
         });
     }

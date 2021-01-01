@@ -1,0 +1,26 @@
+#Схема - это письменное представление наших данных и взаимодействий.
+#Требуя схемы, GraphQL обеспечивает строгий план для нашего API.
+
+#String:  строка с кодировкой символов UTF-8
+#Boolean:  истинное или ложное значение
+#Int:  32-разрядное целое число
+#Float: значение с  плавающей точкой
+#ID:  уникальный идентификатор
+
+schema {
+    query: Query,
+    mutation: Mutation
+}
+
+type Faculty {
+    faculty: String! #not null
+    faculty_name: String!
+}
+
+type Query {
+    getFaculties(faculty: String): [Faculty]
+}
+
+type Mutation {
+    setFaculty(faculty: String!, faculty_name: String!): [Faculty]
+}

@@ -13,8 +13,6 @@ http.createServer(function(request, response) {
     }
 }).listen(3000);
 
-let k = 0;
-
 const wsserver = new WebSocket.Server({ port: 4000, host: 'localhost', path: '/wsserver'});
 wsserver.on('connection', (ws) => {
     ws.on('message', message => {

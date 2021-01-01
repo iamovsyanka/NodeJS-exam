@@ -21,17 +21,14 @@ let options = {
 //Node.js поддерживает несколько подключений на сервер, чтобы сделать HTTP запросы.
 // Эта функция позволяет прозрачно выдавать запросы.
 const request = http.request(options, (response) => {
-        let data = '';
-        response.on('data', (chunk) => {
-            data += chunk;
-        });
-        response.on('end', () => {
-            console.log(data);
-            const jsonResponse = JSON.parse(data);
-            console.log(`comment = ${jsonResponse.comment}, str = ${jsonResponse.str}`);
-        });
-    }
-);
+    let data = '';
+    response.on('data', (chunk) => { data += chunk; });
+    response.on('end', () => {
+        console.log(data);
+        const jsonResponse = JSON.parse(data);
+        console.log(`comment = ${jsonResponse.comment}, str = ${jsonResponse.str}`);
+    });
+});
 
 request.on('error', (err) => { console.error(err) });
 //Посылает часть тела.

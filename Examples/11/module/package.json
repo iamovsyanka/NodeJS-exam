@@ -1,0 +1,11 @@
+{
+  "name": "my-arc-module",
+  "version": "1.0.0",
+  "description": "my Arcuman module",
+  "main": "myArcmodule.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

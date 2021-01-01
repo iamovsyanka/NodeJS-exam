@@ -22,12 +22,9 @@ let options = {
 // Эта функция позволяет прозрачно выдавать запросы.
 const request = http.request(options, (response) => {
         let data = '';
-        response.on('data', (chunk) => {
-            data += chunk;
-        });
+        response.on('data', (chunk) => { data += chunk; });
         response.on('end', () => { console.log(data) });
-    }
-);
+});
 
 request.on('error', (err) => { console.error(err) });
 //Посылает часть тела.

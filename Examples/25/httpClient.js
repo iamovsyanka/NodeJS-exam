@@ -13,13 +13,10 @@ let options = {
 //Node.js поддерживает несколько подключений на сервер, чтобы сделать HTTP запросы.
 // Эта функция позволяет прозрачно выдавать запросы.
 const request = http.request(options, (response) => {
-        let data = '';
-        response.on('data', (chunk) => {
-            data += chunk.toString();
-        });
-        response.on('end', () => { console.log(data)} );
-    }
-);
+    let data = '';
+    response.on('data', (chunk) => { data += chunk.toString(); });
+    response.on('end', () => { console.log(data)} );
+});
 
 request.on('error', (err) => {console.error(err)});
 //Посылает часть тела.

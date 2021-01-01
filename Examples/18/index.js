@@ -15,7 +15,6 @@ http.createServer(function (request, response) {
             + `<p>x - y = ${x - y}</p>`
             + `<p>x * y = ${x * y}</p>`
             + `<p>x / y = ${x / y}</p>`);
-
     }
     else {
         console.error('Incorrect parameter');

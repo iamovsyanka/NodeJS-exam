@@ -1,7 +1,6 @@
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
-let qs = require('querystring');
 
 http.createServer(function (request, response) {
 	if(url.parse(request.url).pathname === '/fetch') {

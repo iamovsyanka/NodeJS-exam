@@ -2,7 +2,7 @@ const http = require('http');
 
 http.createServer(function (request, response) {
     response.writeHead(200, {'Content-type': 'application/json; charset=utf-8'});
-    if (request.method === 'POST' ) {
+    if (request.method === 'POST') {
         let body = '';
         request.on('data', (chunk) => { body += chunk; });
         request.on('end', () => {

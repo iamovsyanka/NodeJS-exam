@@ -17,7 +17,7 @@ server.register('kek', () => 'Kek').public();
 // Этот параметр установлен по умолчанию в файле .register.
 server.register('sum', (params) => {
     let sum = 0;
-    params.forEach(function (item, i, params){
+    params.forEach(function (item, i, params) {
         if(Number.isInteger(item)) sum += item;
     });
 

@@ -16,23 +16,23 @@ http.createServer(function (request, response) {
             В случае, если что-то пошло не так, он передаст ошибку в переменную err.*/
             try {
                 parseString(body, function (err, result) {
-                    // let id = result.request.$.id;
-                    // let exams = '';
-                    // result.request.exam.forEach((p) => {
-                    //     exams += (p.$.name);
-                    // });
-                    // //Функция create вернет новый корневой узел.
-                    // let xmlDoc = xmlbuilder.create('response').att('id', id);
-                    // //Дочерние узлы создаются с element помощью функции (также может быть сокращено до ele or e).
-                    // xmlDoc
-                    //     .ele('sum')
-                    //         .att('element', 'x')
-                    //     //Функция up() предоставляет средство для возврата обратно к родительскому узлу
-                    //     // после создания дочернего узла (также может быть сокращена до u).
-                    //         .att('result', xSum).up()
-                    //     .ele('concat')
-                    //         .att('element', 'm')
-                    //         .att('result', mSum);
+                    let id = result.request.$.id;
+                    let exams = '';
+                    result.request.exam.forEach((p) => {
+                        exams += (p.$.name);
+                    });
+                    //Функция create вернет новый корневой узел.
+                    let xmlDoc = xmlbuilder.create('response').att('id', id);
+                    //Дочерние узлы создаются с element помощью функции (также может быть сокращено до ele or e).
+                    xmlDoc
+                        .ele('sum')
+                            .att('element', 'x')
+                        //Функция up() предоставляет средство для возврата обратно к родительскому узлу
+                        // после создания дочернего узла (также может быть сокращена до u).
+                            .att('result', xSum).up()
+                        .ele('concat')
+                            .att('element', 'm')
+                            .att('result', mSum);
 
                     response.end(body);
                 });

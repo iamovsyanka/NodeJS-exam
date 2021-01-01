@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 const ws = new WebSocket.Server({
-    port:5000,
-    host:'localhost'
+    port: 5000,
+    host: 'localhost'
 });
 
 ws.on('connection', (ws) => {
